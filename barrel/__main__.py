@@ -1,4 +1,3 @@
-# run when file is run
-# ("python barrel")
-# ("python -m barrel")
-print("__main__:base")
+# Run on:
+# python3.9 -m barrel
+# python3.9 barrel
