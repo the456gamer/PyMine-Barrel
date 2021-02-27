@@ -1,1 +1,4 @@
+# For Flask
 flask
+simplejson # Optional for Flask, improves json handeling. 
+python-dotenv
