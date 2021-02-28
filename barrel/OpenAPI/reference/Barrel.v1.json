@@ -1,0 +1,270 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Barrel",
+    "version": "1.0",
+    "description": "API for Barrel Plugin Repository",
+    "contact": {
+      "name": "The456gamer",
+      "email": "the456gamer@the456gamer.dev"
+    },
+    "license": {
+      "url": "https://www.mozilla.org/en-US/MPL/2.0/",
+      "name": "Mozilla Public License Version 2.0"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://barrel.the456gamer.dev/api/v1",
+      "description": "Public DEV endpoint (staging?)"
+    },
+    {
+      "url": "http://localhost:8000/api/v1",
+      "description": "Local Flask dev enviroment"
+    },
+    {
+      "url": "https://barrel.example.com/api/v1",
+      "description": "Public production (TBC)"
+    }
+  ],
+  "paths": {
+    "/project/{resourceUID}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "resourceUID",
+          "in": "path",
+          "required": true,
+          "description": "Unique ResourceID"
+        }
+      ],
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Project"
+                }
+              }
+            }
+          },
+          "": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Plugin"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-project-resourceUID"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "title": "User",
+        "type": "object",
+        "description": "",
+        "x-examples": {
+          "Alice Smith": {
+            "id": 142,
+            "firstName": "Alice",
+            "lastName": "Smith",
+            "email": "alice.smith@gmail.com",
+            "dateOfBirth": "1997-10-31",
+            "emailVerified": true,
+            "signUpDate": "2019-08-24"
+          }
+        },
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the given user."
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date",
+            "example": "1997-10-31"
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date",
+            "description": "The date that the user was created."
+          }
+        },
+        "required": [
+          "id",
+          "firstName",
+          "lastName",
+          "email"
+        ]
+      },
+      "Project": {
+        "title": "Project",
+        "type": "object",
+        "x-examples": {},
+        "description": "",
+        "properties": {
+          "resourceID": {
+            "type": "string"
+          },
+          "resourceUID": {
+            "type": "string",
+            "minLength": 6
+          },
+          "resourceTitle": {
+            "type": "string"
+          },
+          "resourceDownloads": {
+            "$ref": "#/components/schemas/Downloads"
+          },
+          "versions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/File"
+            }
+          },
+          "resourceTags": {
+            "type": [
+              "string",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "resourceNamespace": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "resourceID",
+          "resourceUID",
+          "resourceTitle",
+          "resourceDownloads",
+          "versions",
+          "resourceTags"
+        ]
+      },
+      "File": {
+        "title": "File",
+        "type": "object",
+        "x-examples": {},
+        "properties": {
+          "fileUUID": {
+            "type": "string"
+          },
+          "fileVersion": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "fileTags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fileDownloads": {
+            "$ref": "#/components/schemas/Downloads"
+          },
+          "resourceUID": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fileUUID",
+          "fileVersion",
+          "fileName",
+          "fileTags",
+          "fileDownloads",
+          "resourceUID"
+        ]
+      },
+      "Organisation": {
+        "title": "Organisation",
+        "type": "object",
+        "properties": {
+          "orgName": {
+            "type": "string"
+          },
+          "orgOwner": {
+            "type": "string"
+          }
+        }
+      },
+      "Downloads": {
+        "title": "Downloads",
+        "type": "object",
+        "properties": {
+          "downloads": {
+            "type": "object",
+            "required": [
+              "allTime",
+              "lastYear",
+              "lastSixMonths",
+              "lastThreeMonths",
+              "lastMonth",
+              "lastWeek",
+              "lastDay"
+            ],
+            "properties": {
+              "allTime": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "lastYear": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "lastSixMonths": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "lastThreeMonths": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "lastMonth": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "lastWeek": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "lastDay": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        },
+        "required": [
+          "downloads"
+        ]
+      }
+    },
+    "securitySchemes": {}
+  }
+}
