@@ -1,5 +1,18 @@
+#
+# Main Application
+#
+
 # For Flask
 flask
 simplejson # Optional for Flask, improves json handeling. 
 python-dotenv
 watchdog # Optional
+
+# For Development
+pylint
+
+#
+# Documentation
+#
+rstcheck
+sphinx
