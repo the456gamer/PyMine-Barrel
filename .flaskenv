@@ -1,4 +1,4 @@
-FLASK_APP="barrel.app"
+FLASK_APP="barrel"
 FLASK_ENV="development"
 FLASK_DEBUG=1
 FLASK_RUN_PORT=8000
