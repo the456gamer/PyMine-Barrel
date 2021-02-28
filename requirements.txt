@@ -7,6 +7,8 @@ flask
 simplejson # Optional for Flask, improves json handeling. 
 python-dotenv
 watchdog # Optional
+connexion[swagger-ui]
+sqlalchemy
 
 # For Development
 pylint
