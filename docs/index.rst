@@ -10,6 +10,8 @@ Barrel is a Plugin Repository made for PyMine
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   
+   brainstorm/brainstorm
 
 Indices and tables
 ==================
