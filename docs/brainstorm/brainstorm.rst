@@ -84,7 +84,6 @@ information page
    - starts, 1-5
    - average incuding decimals
 - changelog
-- multiple versions of a file (paid/free?) (minimum cost to unlock) (itch.io)
 - donation link
 - source code link
 - feedback link
@@ -98,6 +97,4 @@ information page
    - public
    - unlisted (if you have the link, you can see the plugin)
    - private (need to be contibutors to see plugin)
-   - if money paid/donated through website, then always possible to see page (to stop blocking of downloads etc)
 - dependancys
-- 
