@@ -4,4 +4,5 @@
         ".flaskenv": "dotenv",
         ".env.example": "dotenv"
     },
+    "restructuredtext.confPath": "${workspaceFolder}/docs",
 }
