@@ -7,4 +7,4 @@ ENV VARIABLE_NAME="app"
 
 COPY ./requirements.txt /app
 RUN python3 -m pip -U pip\
-    python3 -m pip install -r requirements.txt
+    python3 -m pip install -U -r requirements.txt
