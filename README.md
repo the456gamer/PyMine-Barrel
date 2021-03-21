@@ -6,7 +6,7 @@ A Plugin repository Written in Python for [PyMine](https://github.com/py-mine/Py
 using python 3.9
 ```shell
 $ # Clone the Repository
-$ git clone https://github.com/the456gamer/PyMine-Barrel.git
+$ git clone https://github.com/py-mine/PyMine-Barrel.git
 $ # Change into it
 $ cd PyMine-Barrel
 $ # Create venv called venv
