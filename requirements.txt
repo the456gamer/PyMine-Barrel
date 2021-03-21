@@ -1,10 +1,1 @@
-fastapi[all]>=0.63.0,<0.64.0
-
-# For Development
-pylint
-
-#
-# Documentation
-#
-rstcheck
-sphinx
+-r requirements/all.txt
